@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
     const {
+        id,
         name,
         price,
         originalPrice,
@@ -18,18 +20,18 @@ const ProductCard = ({ product }) => {
             <div className="relative w-full h-[250px] bg-[#F5F5F5] rounded flex items-center justify-center overflow-hidden">
                 {/* Badges */}
                 {discount && (
-                    <div className="absolute top-3 left-3 bg-red-500 text-white text-xs px-3 py-1 rounded">
+                    <div className="absolute top-3 left-3 bg-red-500 text-white text-xs px-3 py-1 rounded z-10">
                         -{discount}%
                     </div>
                 )}
                 {isNew && (
-                    <div className="absolute top-3 left-3 bg-green-500 text-white text-xs px-3 py-1 rounded">
+                    <div className="absolute top-3 left-3 bg-green-500 text-white text-xs px-3 py-1 rounded z-10">
                         NEW
                     </div>
                 )}
 
                 {/* Action Icons */}
-                <div className="absolute top-3 right-3 flex flex-col gap-2">
+                <div className="absolute top-3 right-3 flex flex-col gap-2 z-10">
                     <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
@@ -43,15 +45,17 @@ const ProductCard = ({ product }) => {
                     </button>
                 </div>
 
-                {/* Product Image */}
-                <img
-                    src={image || "https://placehold.co/200x200?text=Product"}
-                    alt={name}
-                    className="w-full h-full object-contain p-4 mix-blend-multiply"
-                />
+                {/* Product Image Link */}
+                <Link to={`/product/${id}`} className="w-full h-full flex items-center justify-center">
+                    <img
+                        src={image || "https://placehold.co/200x200?text=Product"}
+                        alt={name}
+                        className="w-full h-full object-contain p-4 mix-blend-multiply"
+                    />
+                </Link>
 
                 {/* Add To Cart Overlay */}
-                <button className="absolute bottom-0 left-0 w-full bg-black text-white py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex items-center justify-center gap-2">
+                <button className="absolute bottom-0 left-0 w-full bg-black text-white py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex items-center justify-center gap-2 z-20">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                     </svg>
@@ -61,7 +65,7 @@ const ProductCard = ({ product }) => {
 
             {/* Product Details */}
             <div className="flex flex-col gap-1">
-                <h3 className="font-medium text-base truncate">{name}</h3>
+                <Link to={`/product/${id}`} className="font-medium text-base truncate hover:text-red-500 transition-colors">{name}</Link>
                 <div className="flex gap-3 text-base font-medium">
                     <span className="text-red-500">${price}</span>
                     {originalPrice && (
