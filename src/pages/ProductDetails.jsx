@@ -9,44 +9,91 @@ const ProductDetails = () => {
     const [selectedColor, setSelectedColor] = useState('red');
     const [selectedSize, setSelectedSize] = useState('M');
 
-    // Dummy product data (in a real app, fetch by ID)
-    const product = {
-        id: id,
-        name: 'Havic HV G-92 Gamepad',
-        price: 192.00,
-        rating: 4.0,
-        reviews: 150,
-        inStock: true,
-        description: 'PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.',
-        images: [
-            'https://placehold.co/500x500/png?text=Gamepad+Main',
-            'https://placehold.co/150x150/png?text=View+1',
-            'https://placehold.co/150x150/png?text=View+2',
-            'https://placehold.co/150x150/png?text=View+3',
-            'https://placehold.co/150x150/png?text=View+4',
-        ]
-    };
-
-    const relatedProducts = [
+    // Expanded dummy data to simulate a database
+    const allProducts = [
         {
-            id: 7,
-            name: 'HAVIT HV-G92 Gamepad',
-            price: 120,
-            originalPrice: 160,
-            discount: 40,
-            rating: 5,
-            reviews: 88,
-            image: 'https://placehold.co/200x200/png?text=Gamepad+Red',
-        },
-        {
-            id: 8,
-            name: 'AK-900 Wired Keyboard',
+            id: 1,
+            name: 'Gucci duffle bag',
             price: 960,
             originalPrice: 1160,
             discount: 35,
-            rating: 4,
-            reviews: 75,
-            image: 'https://placehold.co/200x200/png?text=Keyboard',
+            rating: 4.5,
+            reviews: 65,
+            inStock: true,
+            description: 'The Gucci duffle bag is a stylish and versatile bag that is perfect for travel or everyday use. It features a spacious interior, multiple pockets, and a comfortable shoulder strap.',
+            images: [
+                'https://placehold.co/500x500/png?text=Gucci+Bag',
+                'https://placehold.co/150x150/png?text=Side',
+                'https://placehold.co/150x150/png?text=Back',
+                'https://placehold.co/150x150/png?text=Detail',
+                'https://placehold.co/150x150/png?text=Interior',
+            ]
+        },
+        {
+            id: 2,
+            name: 'RGB liquid CPU Cooler',
+            price: 1960,
+            rating: 4.5,
+            reviews: 65,
+            inStock: true,
+            description: 'Keep your CPU cool with this high-performance RGB liquid cooler. It features a large radiator, powerful fans, and customizable RGB lighting.',
+            images: [
+                'https://placehold.co/500x500/png?text=CPU+Cooler',
+                'https://placehold.co/150x150/png?text=Fan',
+                'https://placehold.co/150x150/png?text=Pump',
+                'https://placehold.co/150x150/png?text=Radiator',
+                'https://placehold.co/150x150/png?text=RGB',
+            ]
+        },
+        {
+            id: 3,
+            name: 'GP11 Shooter USB Gamepad',
+            price: 550,
+            rating: 4.8,
+            reviews: 55,
+            inStock: true,
+            description: 'Experience precision gaming with the GP11 Shooter USB Gamepad. It features ergonomic design, responsive buttons, and vibration feedback.',
+            images: [
+                'https://placehold.co/500x500/png?text=Gamepad',
+                'https://placehold.co/150x150/png?text=Side',
+                'https://placehold.co/150x150/png?text=Back',
+                'https://placehold.co/150x150/png?text=Buttons',
+                'https://placehold.co/150x150/png?text=Cable',
+            ]
+        },
+        {
+            id: 4,
+            name: 'Quilted Satin Jacket',
+            price: 750,
+            rating: 4.5,
+            reviews: 55,
+            inStock: true,
+            description: 'Stay warm and stylish with this Quilted Satin Jacket. It features a classic design, comfortable fit, and premium materials.',
+            images: [
+                'https://placehold.co/500x500/png?text=Jacket',
+                'https://placehold.co/150x150/png?text=Front',
+                'https://placehold.co/150x150/png?text=Back',
+                'https://placehold.co/150x150/png?text=Lining',
+                'https://placehold.co/150x150/png?text=Zipper',
+            ]
+        },
+        {
+            id: 5,
+            name: 'ASUS FHD Gaming Laptop',
+            price: 960,
+            originalPrice: 1160,
+            discount: 35,
+            rating: 5,
+            reviews: 65,
+            inStock: true,
+            description: 'Dominate the competition with the ASUS FHD Gaming Laptop. It features a powerful processor, high-refresh-rate display, and dedicated graphics card.',
+            images: [
+                'https://placehold.co/500x500/png?text=Laptop',
+                'https://placehold.co/150x150/png?text=Keyboard',
+                'https://placehold.co/150x150/png?text=Screen',
+                'https://placehold.co/150x150/png?text=Ports',
+                'https://placehold.co/150x150/png?text=Back',
+            ]
         },
         {
             id: 6,
@@ -56,18 +103,60 @@ const ProductDetails = () => {
             discount: 30,
             rating: 5,
             reviews: 99,
-            image: 'https://placehold.co/200x200/png?text=Monitor',
+            inStock: true,
+            description: 'Immerse yourself in the game with the IPS LCD Gaming Monitor. It features stunning visuals, fast response time, and wide viewing angles.',
+            images: [
+                'https://placehold.co/500x500/png?text=Monitor',
+                'https://placehold.co/150x150/png?text=Front',
+                'https://placehold.co/150x150/png?text=Back',
+                'https://placehold.co/150x150/png?text=Stand',
+                'https://placehold.co/150x150/png?text=Ports',
+            ]
         },
         {
-            id: 2,
-            name: 'RGB liquid CPU Cooler',
-            price: 160,
-            originalPrice: 170,
-            rating: 4.5,
-            reviews: 65,
-            image: 'https://placehold.co/200x200/png?text=CPU+Cooler',
+            id: 7,
+            name: 'HAVIT HV-G92 Gamepad',
+            price: 120,
+            originalPrice: 160,
+            discount: 40,
+            rating: 5,
+            reviews: 88,
+            inStock: true,
+            description: 'PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.',
+            images: [
+                'https://placehold.co/500x500/png?text=Gamepad+Red',
+                'https://placehold.co/150x150/png?text=View+1',
+                'https://placehold.co/150x150/png?text=View+2',
+                'https://placehold.co/150x150/png?text=View+3',
+                'https://placehold.co/150x150/png?text=View+4',
+            ]
         },
+        {
+            id: 8,
+            name: 'AK-900 Wired Keyboard',
+            price: 200,
+            rating: 5,
+            reviews: 65,
+            inStock: true,
+            description: 'Type with precision and speed using the AK-900 Wired Keyboard. It features mechanical switches, customizable RGB lighting, and a durable design.',
+            images: [
+                'https://placehold.co/500x500/png?text=Keyboard',
+                'https://placehold.co/150x150/png?text=Keys',
+                'https://placehold.co/150x150/png?text=Back',
+                'https://placehold.co/150x150/png?text=Cable',
+                'https://placehold.co/150x150/png?text=RGB',
+            ]
+        }
     ];
+
+    // Find product by ID (convert id from params to number)
+    const currentProduct = allProducts.find(p => p.id === parseInt(id)) || allProducts[0];
+
+    // Filter out current product for related items
+    const relatedProducts = allProducts.filter(p => p.id !== currentProduct.id).slice(0, 4);
+
+    // Use currentProduct instead of the hardcoded 'product' variable
+    const product = currentProduct;
 
     return (
         <div className="container mx-auto px-4 py-10">

@@ -2,7 +2,7 @@ import React from 'react';
 import SectionHeader from '../components/SectionHeader';
 import ProductCard from '../components/ProductCard';
 
-const Home = () => {
+const Wishlist = () => {
     const wishlistProducts = [
         {
             id: 1,
@@ -81,11 +81,19 @@ const Home = () => {
 
     return (
         <div className="container mx-auto px-4 py-10">
-            {/* Hero/Welcome Section (Placeholder for now) */}
-            <div className="mb-20 text-center">
-                <h1 className="text-4xl font-bold mb-4">Welcome to Exclusive</h1>
-                <p className="text-gray-600">Best products for your needs</p>
-            </div>
+            {/* Wishlist Section */}
+            <section className="mb-20">
+                <SectionHeader
+                    title="Wishlist (4)"
+                    actionText="Move All To Bag"
+                    onAction={() => alert('Moved all to bag!')}
+                />
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+                    {wishlistProducts.map(product => (
+                        <ProductCard key={product.id} product={product} />
+                    ))}
+                </div>
+            </section>
 
             {/* Just For You Section */}
             <section>
@@ -104,4 +112,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Wishlist;
