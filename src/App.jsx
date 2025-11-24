@@ -1,23 +1,18 @@
+import navigation from "./Components/navigation"
 import Header from "./Components/Header"
-import WelcomeMessage from "./Components/WelcomeMessage"
-import HeroBanner from "./Components/HeroBanner"
-import FlashSales from "./Components/FlashSales"
-import CategoryBrowse from "./Components/CategoryBrowse"
-import Footer from "./Components/Footer"
-
+import NotFound from "./Components/NotFound";
+import Footer from "./Components/Footer";
+import Breadcrumb from "./Components/Breadcrumb"
+import Ad from "./Components/Ad"
+import ProfilePage from "./Components/ProfilePage"
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header />
-      <main>
-        <WelcomeMessage />
-        <HeroBanner />
-        <FlashSales />
-        <CategoryBrowse />
-      </main>
-      <Footer />
-    </div>
-  )
+    <>
+    <Ad/>
+    <Header/>
+    <ProfilePage/>
+    <Footer/>
+    </>
+  );
 }
-
-export default App
+export default App;

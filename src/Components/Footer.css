@@ -1,0 +1,30 @@
+.footer{
+    display:flex;
+    background-color: black;
+    color:white;
+    padding: 3rem;
+
+}
+.footer-section{
+    padding:0 54px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.footer-section p {
+    margin-bottom: 1rem;
+}
+.footer-section h3{
+    font-size: large;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+.footer-section h2{
+    margin-bottom: 1rem;
+    font-size: large;
+    font-weight: bold;
+}
+.footer-section h1{
+    margin-bottom: 1rem;
+    font-size: large;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}

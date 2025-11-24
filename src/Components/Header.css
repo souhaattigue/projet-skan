@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  height: 4rem;
+  font-family: 'Open Sans', sans-serif;
+  border-bottom: 1px solid ;
+
+}
+
+.header__logo {
+  font-size: 1.8rem;
+  padding-left:50px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+.navbar span {
+  cursor: pointer;
+}
+
+.navbar span:hover{
+  color:red;
+}
+.navbar button {
+  cursor: pointer;
+}
+
+.navbar button:hover {
+  color: red;
+}
