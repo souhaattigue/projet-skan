@@ -1,0 +1,50 @@
+/* Ad Banner Container */
+.ad-banner {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 80px;
+    font-size: 14px;
+    position: relative;
+}
+
+/* Main promotional text */
+.ad-text {
+    margin: 0;
+    text-align: center;
+}
+
+/* ShopNow link */
+.shop-link {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.shop-link:hover {
+    color: red;
+}
+
+/* Language selector - positioned on the right */
+.language-selector {
+    position: absolute;
+    right: 80px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.language-selector:hover {
+    opacity: 0.8;
+}
+
+.language-selector svg {
+    display: block;
+}
